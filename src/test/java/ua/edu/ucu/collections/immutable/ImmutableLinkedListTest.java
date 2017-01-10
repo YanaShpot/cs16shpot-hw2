@@ -26,8 +26,8 @@ public class ImmutableLinkedListTest {
         list = list.add(2);
         list = list.add(3);
         list = list.add(1,0);
-
         Object[] actualResult = list.toArray();
+
         assertArrayEquals(expectedResult, actualResult);
 
     }
@@ -40,8 +40,8 @@ public class ImmutableLinkedListTest {
         list = list.add(2);
         list = list.addFirst(0);
         list = list.addLast(3);
-
         Object[] actualResult = list.toArray();
+
         assertArrayEquals(expectedResult, actualResult);
 
     }
@@ -53,6 +53,7 @@ public class ImmutableLinkedListTest {
         Object[] expectedResult = {0,1,2,3};
         list = list.addAll(obj);
         Object[] actualResult = list.toArray();
+
         assertArrayEquals(expectedResult, actualResult);
 
     }
@@ -66,6 +67,7 @@ public class ImmutableLinkedListTest {
         Object[] expectedResult = {0,1,2,3,4};
         list = list.addAll(1,obj);
         Object[] actualResult = list.toArray();
+
         assertArrayEquals(expectedResult, actualResult);
 
     }
@@ -80,6 +82,7 @@ public class ImmutableLinkedListTest {
             list = list.add(values[i]);
         }
         list = list.add(1093, 4678);
+
         assertEquals(new IndexOutOfBoundsException(), list);
     }
 
@@ -91,6 +94,7 @@ public class ImmutableLinkedListTest {
             list = list.add(values[i]);
         }
         Object result = list.get(1);
+
         assertEquals("2", result.toString());
     }
 
@@ -102,6 +106,7 @@ public class ImmutableLinkedListTest {
             list = list.add(values[i]);
         }
         Object result = list.getFirst();
+
         assertEquals("1", result.toString());
     }
 
@@ -113,6 +118,7 @@ public class ImmutableLinkedListTest {
             list = list.add(values[i]);
         }
         Object result = list.getLast();
+
         assertEquals("4", result.toString());
 
     }
@@ -125,6 +131,7 @@ public class ImmutableLinkedListTest {
             list = list.add(values[i]);
         }
         Object result = list.get(567);
+
         assertEquals(new IndexOutOfBoundsException(), result);
     }
 
@@ -137,6 +144,7 @@ public class ImmutableLinkedListTest {
             list = list.add(values[i]);
         }
         list = list.set(1, 4);
+
         assertEquals(expectedResult, list.toString());
     }
 
@@ -148,6 +156,7 @@ public class ImmutableLinkedListTest {
             list = list.add(values[i]);
         }
         list = list.set(-1, 1234);
+
         assertEquals(new IndexOutOfBoundsException(), list);
     }
 
@@ -159,7 +168,6 @@ public class ImmutableLinkedListTest {
         for (int i = 0; i < 4; i++) {
             list = list.add(values[i]);
         }
-        ImmutableLinkedList expectedResult = new ImmutableLinkedList();
         list = list.clear();
 
         assertEquals(new ImmutableLinkedList().toString(), list.toString());
@@ -169,13 +177,14 @@ public class ImmutableLinkedListTest {
     public void testIsEmpty() {
         boolean expectedResult = false;
         ImmutableLinkedList list = new ImmutableLinkedList(new Node (0,null));
-
         boolean result = list.isEmpty();
+
         assertEquals(expectedResult, result);
 
         ImmutableLinkedList newLinkedList1 = new ImmutableLinkedList();
         expectedResult = true;
         result = newLinkedList1.isEmpty();
+
         assertEquals(expectedResult, result);
 
     }
@@ -189,7 +198,6 @@ public class ImmutableLinkedListTest {
         list = list.add(3);
         ImmutableLinkedList list1 = list.removeLast();
         ImmutableLinkedList list2 = list.remove(2);
-
 
         assertArrayEquals(expectedResult, list1.toArray());
         assertArrayEquals(expectedResult, list2.toArray());
@@ -207,7 +215,6 @@ public class ImmutableLinkedListTest {
         ImmutableLinkedList list1 = list.removeFirst();
         ImmutableLinkedList list2 = list.remove(1);
 
-
         assertArrayEquals(expectedResult1, list1.toArray());
         assertArrayEquals(expectedResult2, list2.toArray());
     }
@@ -220,6 +227,7 @@ public class ImmutableLinkedListTest {
             list = list.add(values[i]);
         }
         list = list.remove(456);
+
         assertEquals(new IndexOutOfBoundsException(), list);
     }
 
@@ -232,7 +240,6 @@ public class ImmutableLinkedListTest {
         }
         int expectedResult = 1;
         int expectedResultWithException = -1;
-
         int result = list.indexOf(2);
         int resultWithException = list.indexOf(100000);
 
@@ -247,6 +254,7 @@ public class ImmutableLinkedListTest {
         for (int i = 0; i < 4; i++) {
             list = list.add(values[i]);
         }
+
         assertEquals(4, list.size());
     }
     
@@ -258,6 +266,7 @@ public class ImmutableLinkedListTest {
         for (int i = 0; i < 4; i++) {
             list = list.add(values[i]);
         }
+
         assertEquals(expectedResult, list.toString());
     }
 
